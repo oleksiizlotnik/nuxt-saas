@@ -8,7 +8,7 @@ import { SidebarProvider, SidebarTrigger } from '@/components/ui/sidebar'
   <SidebarProvider>
     <AppSidebar />
     <main class="w-full">
-      <div class="p-4 h-full w-full">
+      <div class="bg-muted p-4 h-full w-full">
         <SidebarTrigger />
         <div class="page py-4 pl-1 h-full">
           <slot />

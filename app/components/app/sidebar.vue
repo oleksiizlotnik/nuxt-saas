@@ -16,8 +16,8 @@ const appMenu: ISidebarMenu[] = [
     icon: Home,
   },
   {
-    title: "About",
-    url: "/about",
+    title: "Contacts",
+    url: "/contacts",
     icon: Inbox,
   },
 ];

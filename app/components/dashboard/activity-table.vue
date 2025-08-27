@@ -19,7 +19,7 @@ const activityCount = computed<number | undefined>(() => props.data?.length)
     No activities yet
   </div>
   <div v-for="(item, index) in props.data" v-else :key="item.id" class="activity relative">
-    <div class="activity-item flex gap-1 py-6 items-center">
+    <div class="activity-item flex gap-1 py-6 items-center flex-wrap">
       <Avatar>
         <AvatarFallback>{{ formatUserName(item.user).initials }}</AvatarFallback>
       </Avatar>

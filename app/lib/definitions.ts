@@ -31,3 +31,27 @@ export interface ProfitChartData {
   total: number;
   predicted: number;
 }
+
+export interface Contacts {
+  id: string;
+  type: "customer" | "lead";
+  avatar: string;
+  email: string;
+  name: string;
+  firstName: string;
+  lastName: string;
+  status: "active" | "inactive" | "pending" | "new";
+  tags: string[];
+  createdAt: string;
+  updatedAt: string;
+  sortOrder?: number;
+}
+
+export interface ContactsWithKeys {
+  [key: string]: Contacts;
+}
+
+export interface CanbanColumn {
+  name: string;
+  data: Contacts[];
+}
