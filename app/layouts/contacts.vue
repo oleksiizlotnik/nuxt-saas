@@ -33,7 +33,7 @@ const changePage = (page: string) => {
       <div class="bg-muted p-4 h-full w-full">
         <SidebarTrigger />
         <div class="page py-4 pl-1 h-full">
-          <ToggleGroup type="single" class="w-full md:w-[300px]" variant="default"
+          <ToggleGroup type="single" class="w-full md:w-[300px] mb-5" variant="default"
             @update:model-value="(page) => changePage(page as string)">
             <ToggleGroupItem v-for="(link, index) in links" :key="index" :value="link.url" :aria-label="link.name"
               :disabled="route.path === link.url"

@@ -1,13 +1,15 @@
 <script lang="ts" setup>
 import { capitalize } from 'vue';
 const props = defineProps<{
-  name: string
+  name: string,
+  count?: number
 }>()
 </script>
 <template>
-<div class="canban-column__info">
+<div class="canban-column__info bg-white py-5 h-[50px] z-10">
   <h3>{{ capitalize(props.name) }}</h3>
-  <span class="text-sm text-gray-400">filter here</span>
+  <!-- <span class="text-sm text-gray-400">filter here</span> -->
+  <span v-if="count" class="text-sm text-gray-400">Count: {{ props.count }}</span>
 </div>
 </template>
 

@@ -10,8 +10,7 @@ const customers = Object.values(contactsData).filter(item => item.type === 'cust
 </script>
 <template>
 <div>
-  contacts customers
-  count: {{ customers.length }}
+  <CanbanBoard :data="customers" group-by="status" />
 </div>
 </template>
 

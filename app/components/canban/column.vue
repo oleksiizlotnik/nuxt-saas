@@ -33,9 +33,9 @@ defineExpose({
 </script>
 
 <template>
-<Card class="canban-column min-w-full w-full md:min-w-[60%] md:w-[60%] lg:min-w-[auto] lg:w-96">
+<Card class="canban-column min-w-full w-full md:min-w-[60%] md:w-[60%] lg:min-w-[auto] lg:w-96 pt-0">
   <CardContent class="space-y-3">
-    <CanbanColumnInfo :name="props.name" />
+    <CanbanColumnInfo :name="props.name" :count="dataSource.length" />
 
     <!-- Virtual List -->
     <div v-bind="containerProps" class="flex-1 min-h-0 overflow-y-auto">

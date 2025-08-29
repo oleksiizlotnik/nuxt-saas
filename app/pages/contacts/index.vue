@@ -5,15 +5,12 @@ definePageMeta({
   layout: 'contacts'
 })
 
-const contacts = Object.keys(contactsData)
+const contacts = Object.values(contactsData)
 
 </script>
 <template>
 <div>
-  contacts index
-  count: {{ contacts.length }}
-
-  <CanbanBoard :data="contactsData" group-by="status" />
+  <CanbanBoard :data="contacts" group-by="status" />
 </div>
 </template>
 
