@@ -2,17 +2,17 @@
 import { Card, CardContent } from '~/components/ui/card';
 import type { CanbanColumn } from '~/lib/definitions';
 import { useVirtualList } from '@vueuse/core'
-import { computed } from 'vue'
+import { computed, ref } from 'vue'
 
 const props = defineProps<CanbanColumn>();
 
-// Create a computed ref for the data to ensure reactivity
+const activeCardId = ref<string | null>(null)
 const dataSource = computed(() => props.data || [])
 
 const { list, containerProps, wrapperProps } = useVirtualList(
   dataSource,
   {
-    itemHeight: 140, // Adjust this based on your card height
+    itemHeight: 140,
   },
 )
 
@@ -22,9 +22,14 @@ const handleCardClick = (e: MouseEvent): void => {
 
   if (cardElement) {
     const contactId = cardElement.getAttribute('data-contact-id');
-    console.log('you clicked on card with id: ', contactId)
+    activeCardId.value = contactId;
+    // console.log('you clicked on card with id: ', contactId)
   }
 }
+
+defineExpose({
+  activeCardId
+})
 </script>
 
 <template>
@@ -32,7 +37,7 @@ const handleCardClick = (e: MouseEvent): void => {
   <CardContent class="space-y-3">
     <CanbanColumnInfo :name="props.name" />
 
-    <!-- Virtual List Implementation -->
+    <!-- Virtual List -->
     <div v-bind="containerProps" class="flex-1 min-h-0 overflow-y-auto">
       <div v-bind="wrapperProps" @click="(e) => handleCardClick(e)" class="space-y-3">
         <CanbanColumnCard v-for="item in list" :key="item.data.id" :card="item.data" />

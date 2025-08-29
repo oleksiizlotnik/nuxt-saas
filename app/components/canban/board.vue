@@ -26,7 +26,7 @@ const prepareColumns = (): void => {
   // Check if localData.value is an object (grouped data)
   if (typeof localData.value === 'object' && !Array.isArray(localData.value)) {
     const names = Object.keys(localData.value)
-    const columns: CanbanColumn[] = names.map((columnName: string, index: number) => {
+    const columns: CanbanColumn[] = names.map((columnName: string) => {
       return {
         name: columnName,
         data: (localData.value as Record<string, Contacts[]>)[columnName] || []

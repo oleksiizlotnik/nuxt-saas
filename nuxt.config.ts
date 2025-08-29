@@ -16,6 +16,7 @@ export default defineNuxtConfig({
     "@pinia/nuxt",
     "@vueuse/nuxt",
     "shadcn-nuxt",
+    "@nuxt/test-utils/module",
   ],
   shadcn: {
     /**

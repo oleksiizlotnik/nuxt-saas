@@ -11,6 +11,11 @@ interface ActivityTableProps {
 const props = defineProps<ActivityTableProps>()
 
 const activityCount = computed<number | undefined>(() => props.data?.length)
+
+// Expose computed property for testing
+defineExpose({
+  activityCount
+})
 </script>
 
 <template>
